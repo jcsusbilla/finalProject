@@ -54,7 +54,7 @@ def how_to_play():
                 pygame.quit()
                 quit()
         gameDisplay.fill(white)
-        message_to_screen("HOW TO PLAY", black, -250,size="large")
+        message_to_screen("HOW TO PLAY", black,-250,size="large")
 
         button("Main", 350,500,100,50, yellow, light_yellow, action="main")
         
@@ -104,12 +104,11 @@ def button(text, x, y, width, height, inactive_color, active_color, action = Non
                 information()
             if action =="how to play":
                 how_to_play()
+            
     else:
         pygame.draw.rect(gameDisplay, inactive_color, (x,y,width,height))
 
     text_to_button(text,black,x,y,width,height)
-
-
 
 def game_intro():
     intro = True
@@ -123,9 +122,9 @@ def game_intro():
 
         gameDisplay.fill(white)
 
-        # background = pygame.image.load("finalProject/images/blue_bg1.jpg").convert()
-        # gameDisplay.blit(background, (0,0))
-        # pygame.display.update()
+        background = pygame.image.load("finalProject/images/bg2.png")
+        gameDisplay.blit(background, (0,0))
+        pygame.display.update()
 
         message_to_screen("PYkemon!",black,-100,size="medium")
         message_to_screen("BATTLE BLUE",blue,-30, size="large")
@@ -141,7 +140,7 @@ def game_intro():
 
         clock.tick(15)
 
-def information():
+def information(): 
     info_ = True
     while info_:
         for event in pygame.event.get():
@@ -188,13 +187,18 @@ def oak_intro():
                 quit()
 
         gameDisplay.fill(white)
+        
+        oak_bg = pygame.image.load("finalProject/images/oak_bg.jpg").convert()
+        gameDisplay.blit(oak_bg, (0,0))
         # pygame.display.update()
 
         oak = pygame.image.load("finalProject/images/oak.png")
         gameDisplay.blit(oak,(300,70))
+
         pygame.display.update()
         
         clock.tick(60)
+
 
 def you_win():
     win = True
@@ -209,7 +213,7 @@ def you_win():
         message_to_screen("You won!",green,-100,size="large")
         message_to_screen("Congratulations!",black,-30)
 
-        button("play Again", 150,500,150,50, green, light_green, action="play")
+        button("play again", 150,500,150,50, green, light_green, action="play")
         button("controls", 350,500,100,50, yellow, light_yellow, action="controls")
         button("quit", 550,500,100,50, red, light_red, action ="quit")
         button("info", 0,0,100,50, grey, light_grey, action="info")
