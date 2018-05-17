@@ -6,7 +6,7 @@
 # week 6: created characters
 # week 7: created attacks, added music
 
-# ***CREDIT FOR CODE IN INFORMATION SCREEN***
+# ***CREDIT FOR CODE:
 
 import ctypes, math, os, random, string, sys, time, tkinter, pygame
 from pygame.locals import *
@@ -16,18 +16,16 @@ from settings import *
 #initialize the game
 pygame.init() #program
 pygame.mixer.init() #music
-
 pkmn_settings = Settings()
 gameDisplay = pygame.display.set_mode((pkmn_settings.display_width, pkmn_settings.display_height)) 
 vec = pygame.math.Vector2
+clock = pygame.time.Clock()
 
 #images/sprites
-clock = pygame.time.Clock()
 charizard = pygame.image.load('finalProject/images/charizard.png').convert()
 fire = pygame.image.load('finalProject/images/fire.png').convert()
 elec = pygame.image.load('finalProject/images/shock.png').convert()
 pikachu = pygame.image.load('finalProject/images/pikachu.png').convert()
-oof = pygame.image.load('finalProject/images/oof.jpg').convert()
 
 #sounds
 pygame.mixer.music.load("finalProject/sounds/battle_music.mp3")
@@ -38,6 +36,8 @@ smallfont = pygame.font.SysFont("agencyfb", 25)
 medfont = pygame.font.SysFont("agencyfb", 55)
 largefont = pygame.font.SysFont("agencyfb", 85)
 
+#player 1 & 2 attributes
+#create platforms
 class Ground(pygame.sprite.Sprite):
     def __init__(self, x, y, width, height):
         pygame.sprite.Sprite.__init__(self)
